@@ -9,6 +9,17 @@
 import UIKit
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var bottomText: UITextField!
+    
+    var imagePickerController:UIImagePickerController!
+    var memedImage:UIImage!
+    var selectedTextField:UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,17 +84,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var shareButton: UIBarButtonItem!
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var topText: UITextField!
-    @IBOutlet weak var bottomText: UITextField!
-    
-    var imagePickerController:UIImagePickerController!
-    var memedImage:UIImage!
-    var selectedTextField:UITextField!
     
     func imagePickerController(picker:UIImagePickerController, didFinishPickingImage image:UIImage, editingInfo:[String : AnyObject]?){
         self.dismissViewControllerAnimated(true, completion: nil)
