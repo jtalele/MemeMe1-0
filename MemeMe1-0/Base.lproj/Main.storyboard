@@ -33,7 +33,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="CKF-AB-mJl"/>
-                                    <barButtonItem systemItem="camera" id="MtI-0e-IIV" userLabel="Camera Button"/>
+                                    <barButtonItem systemItem="camera" id="MtI-0e-IIV" userLabel="Camera Button">
+                                        <connections>
+                                            <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" id="g2s-9k-H54"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="mrx-vJ-dBa"/>
                                     <barButtonItem title="Album" id="3Uy-1p-BAW">
                                         <connections>
@@ -73,9 +77,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomText" destination="IdD-gn-aAm" id="tEf-k7-SPm"/>
+                        <outlet property="cameraButton" destination="MtI-0e-IIV" id="GPU-vu-dXz"/>
                         <outlet property="cancelButton" destination="Lh7-DH-Hed" id="j76-he-W7z"/>
                         <outlet property="imageView" destination="jxV-6t-f5m" id="ugx-Ag-03L"/>
                         <outlet property="shareButton" destination="1Ty-Fv-2vu" id="5Mg-de-mUX"/>
+                        <outlet property="topText" destination="dnH-43-bnW" id="HYs-Xm-HNM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
