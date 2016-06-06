@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jxV-6t-f5m">
-                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
+                                <rect key="frame" x="4" y="0.0" width="592" height="600"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAu-Id-XaL">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -70,18 +70,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IdD-gn-aAm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4nb-u2-uwr"/>
+                            <constraint firstItem="jxV-6t-f5m" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="70C-PR-DOE"/>
                             <constraint firstAttribute="bottomMargin" secondItem="mAu-Id-XaL" secondAttribute="bottom" id="ACD-Ng-d9M"/>
-                            <constraint firstItem="jxV-6t-f5m" firstAttribute="top" secondItem="Ukt-C2-Lko" secondAttribute="bottom" id="CE7-1l-3Dc"/>
                             <constraint firstItem="dnH-43-bnW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G5i-xc-lhW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jxV-6t-f5m" secondAttribute="bottom" id="HhB-9e-RSE"/>
                             <constraint firstItem="dnH-43-bnW" firstAttribute="top" secondItem="Ukt-C2-Lko" secondAttribute="bottom" constant="30" id="RTR-SS-Dp5"/>
                             <constraint firstItem="mAu-Id-XaL" firstAttribute="top" secondItem="IdD-gn-aAm" secondAttribute="bottom" constant="30" id="VH2-0x-1gi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mAu-Id-XaL" secondAttribute="trailing" constant="-20" id="Yh7-OD-Xae"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jxV-6t-f5m" secondAttribute="trailing" constant="-20" id="bLV-2E-Uht"/>
-                            <constraint firstItem="jxV-6t-f5m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cD1-pM-aIg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jxV-6t-f5m" secondAttribute="trailing" constant="-16" id="bLV-2E-Uht"/>
+                            <constraint firstItem="jxV-6t-f5m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="cD1-pM-aIg"/>
                             <constraint firstItem="Ukt-C2-Lko" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="cRw-VZ-P6z"/>
                             <constraint firstItem="mAu-Id-XaL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="fFK-vT-Jt3"/>
                             <constraint firstItem="Ukt-C2-Lko" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="qYh-8L-VmW"/>
-                            <constraint firstItem="mAu-Id-XaL" firstAttribute="top" secondItem="jxV-6t-f5m" secondAttribute="bottom" id="sdF-7X-UHX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ukt-C2-Lko" secondAttribute="trailing" constant="-16" id="t4P-zT-r1C"/>
                         </constraints>
                     </view>
@@ -98,6 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="160" y="352"/>
         </scene>
     </scenes>
 </document>
