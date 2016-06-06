@@ -21,22 +21,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jxV-6t-f5m">
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGq-yH-ePS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="action" id="1Ty-Fv-2vu" userLabel="Share Button">
-                                        <connections>
-                                            <action selector="shareAction:" destination="BYZ-38-t0r" id="C4R-Cc-h9V"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ES6-F9-NQk"/>
-                                    <barButtonItem systemItem="cancel" id="Lh7-DH-Hed" userLabel="Cancel Button">
-                                        <connections>
-                                            <action selector="cancelAction:" destination="BYZ-38-t0r" id="ytZ-kf-0n1"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAu-Id-XaL">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -61,35 +45,54 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IdD-gn-aAm" userLabel="Bottom Text">
-                                <rect key="frame" x="268.5" y="509" width="63.5" height="17"/>
+                                <rect key="frame" x="268" y="509" width="63.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ukt-C2-Lko">
+                                <rect key="frame" x="4" y="0.0" width="592" height="44"/>
+                                <items>
+                                    <navigationItem id="pUS-VP-KvP">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="Puw-ex-oLM">
+                                            <connections>
+                                                <action selector="shareAction:" destination="BYZ-38-t0r" id="tSm-1k-LD7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Vyu-2t-8VY">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="BYZ-38-t0r" id="8it-Kc-4Dp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jxV-6t-f5m" firstAttribute="top" secondItem="UGq-yH-ePS" secondAttribute="bottom" id="2lh-Nt-uOr"/>
-                            <constraint firstItem="UGq-yH-ePS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="3fJ-XT-D70"/>
                             <constraint firstItem="IdD-gn-aAm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4nb-u2-uwr"/>
                             <constraint firstAttribute="bottomMargin" secondItem="mAu-Id-XaL" secondAttribute="bottom" id="ACD-Ng-d9M"/>
-                            <constraint firstItem="UGq-yH-ePS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="FgY-PZ-HGu"/>
+                            <constraint firstItem="jxV-6t-f5m" firstAttribute="top" secondItem="Ukt-C2-Lko" secondAttribute="bottom" id="CE7-1l-3Dc"/>
                             <constraint firstItem="dnH-43-bnW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G5i-xc-lhW"/>
+                            <constraint firstItem="dnH-43-bnW" firstAttribute="top" secondItem="Ukt-C2-Lko" secondAttribute="bottom" constant="30" id="RTR-SS-Dp5"/>
                             <constraint firstItem="mAu-Id-XaL" firstAttribute="top" secondItem="IdD-gn-aAm" secondAttribute="bottom" constant="30" id="VH2-0x-1gi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mAu-Id-XaL" secondAttribute="trailing" constant="-20" id="Yh7-OD-Xae"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jxV-6t-f5m" secondAttribute="trailing" constant="-20" id="bLV-2E-Uht"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UGq-yH-ePS" secondAttribute="trailing" constant="-20" id="bgs-3O-wrD"/>
                             <constraint firstItem="jxV-6t-f5m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cD1-pM-aIg"/>
+                            <constraint firstItem="Ukt-C2-Lko" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="cRw-VZ-P6z"/>
                             <constraint firstItem="mAu-Id-XaL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="fFK-vT-Jt3"/>
-                            <constraint firstItem="dnH-43-bnW" firstAttribute="top" secondItem="UGq-yH-ePS" secondAttribute="bottom" constant="30" id="pvn-2b-qfU"/>
+                            <constraint firstItem="Ukt-C2-Lko" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="qYh-8L-VmW"/>
                             <constraint firstItem="mAu-Id-XaL" firstAttribute="top" secondItem="jxV-6t-f5m" secondAttribute="bottom" id="sdF-7X-UHX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ukt-C2-Lko" secondAttribute="trailing" constant="-16" id="t4P-zT-r1C"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="NaviBar" destination="Ukt-C2-Lko" id="1cd-yy-eX4"/>
+                        <outlet property="ToolBar" destination="mAu-Id-XaL" id="AWe-tQ-B15"/>
                         <outlet property="bottomText" destination="IdD-gn-aAm" id="tEf-k7-SPm"/>
                         <outlet property="cameraButton" destination="MtI-0e-IIV" id="GPU-vu-dXz"/>
-                        <outlet property="cancelButton" destination="Lh7-DH-Hed" id="j76-he-W7z"/>
+                        <outlet property="cancelButton" destination="Vyu-2t-8VY" id="0I8-y2-Tfs"/>
                         <outlet property="imageView" destination="jxV-6t-f5m" id="ugx-Ag-03L"/>
-                        <outlet property="shareButton" destination="1Ty-Fv-2vu" id="5Mg-de-mUX"/>
+                        <outlet property="shareButton" destination="Puw-ex-oLM" id="0h1-uR-tGd"/>
                         <outlet property="topText" destination="dnH-43-bnW" id="HYs-Xm-HNM"/>
                     </connections>
                 </viewController>

@@ -16,6 +16,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var NaviBar: UINavigationBar!
+    @IBOutlet weak var ToolBar: UIToolbar!
     
     var imagePickerController:UIImagePickerController!
     var memedImage:UIImage!
@@ -43,7 +45,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func configureTextFields(textFields: [UITextField!]){
@@ -55,7 +56,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         ]
         
         for textField in textFields{
-            //Configure and position the top textfield
             textField.textAlignment = .Center
             textField.delegate = self
             textField.defaultTextAttributes = memeTextAttributes
@@ -93,19 +93,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func createMemedImage() -> UIImage {
+        ToolBar.hidden=true
+        NaviBar.hidden=true
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return memedImage
-    }
-    
-    func saveImage() {
-        //Create the meme and save it to our Meme Model:
-        //TODO: setup checks to make sure that no objects are nil
-        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: memedImage!)
-        print(meme.bottomText)
     }
     
     @IBAction func selectImage(sender: AnyObject) {
@@ -134,7 +129,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let imageToShare = createMemedImage()
         let activityItems = [imageToShare]
         let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        presentViewController(activityController, animated: true, completion: {self.saveImage()})
+        presentViewController(activityController, animated: true, completion: nil)
     }
 }
 
