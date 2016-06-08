@@ -22,6 +22,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var imagePickerController:UIImagePickerController!
     var memedImage:UIImage!
     var selectedTextField:UITextField!
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
