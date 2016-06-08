@@ -43,6 +43,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         subscribeToKeyboardNotification()
     }
     
+    /*override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        unSubscribeFromKeyboardNotifications()
+        
+    }*/
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -69,7 +76,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func displayKeyboard(notification: NSNotification) {
-        if selectedTextField == bottomText && self.view.frame.origin.y == 0.0 {
+        if bottomText.isFirstResponder()==true/*selectedTextField == bottomText*/ && self.view.frame.origin.y == 0.0 {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
@@ -104,6 +111,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
+    func save(){
+        //print(meme.bottomText)
+    }
+    
     @IBAction func selectImage(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
             imagePickerController = UIImagePickerController()
@@ -131,6 +142,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let activityItems = [imageToShare]
         let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         presentViewController(activityController, animated: true, completion: nil)
+        self.save()
     }
 }
 
