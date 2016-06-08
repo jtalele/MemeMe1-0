@@ -99,7 +99,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+        ToolBar.hidden=false
+        NaviBar.hidden=false
         return memedImage
     }
     
