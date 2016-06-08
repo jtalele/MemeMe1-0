@@ -43,12 +43,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         subscribeToKeyboardNotification()
     }
     
-    /*override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         
-        unSubscribeFromKeyboardNotifications()
-        
-    }*/
+        return true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,7 +58,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             NSStrokeColorAttributeName: UIColor.blackColor(),
             NSForegroundColorAttributeName: UIColor.whiteColor(),
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : 4.0
+            NSStrokeWidthAttributeName : -2.0
         ]
         
         for textField in textFields{
@@ -112,24 +111,27 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func save(){
-        //print(meme.bottomText)
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: createMemedImage())
+        print("Insdie save method")
+    }
+    
+    func pickImageFrom(source: UIImagePickerControllerSourceType) {
+        imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = source
+        imagePickerController.allowsEditing = false
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func selectImage(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
-            imagePickerController = UIImagePickerController()
-            imagePickerController.delegate=self
-            imagePickerController.sourceType=UIImagePickerControllerSourceType.PhotoLibrary
-            imagePickerController.allowsEditing=false
-            self.presentViewController(imagePickerController,animated: true, completion: nil)
+            pickImageFrom(UIImagePickerControllerSourceType.PhotoLibrary)
         }
     }
     
     @IBAction func pickImageFromCamera(sender: AnyObject) {
-        imagePickerController=UIImagePickerController()
-        imagePickerController.delegate=self
-        imagePickerController.sourceType=UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePickerController,animated: true, completion: nil)
+               pickImageFrom(UIImagePickerControllerSourceType.Camera)
         
     }
     
@@ -142,7 +144,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let activityItems = [imageToShare]
         let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         presentViewController(activityController, animated: true, completion: nil)
+        activityController.completionWithItemsHandler={
+            (activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError?) in
+            if (!completed) {
+                return
+            }
         self.save()
+        self.dismissViewControllerAnimated(true, completion:nil)
+        }
     }
 }
 
